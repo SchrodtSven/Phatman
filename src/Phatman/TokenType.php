@@ -28,8 +28,8 @@ enum TokenType: string
     case QUESTION   ='?';
     case COLON      =':';
     
-    case NAME = '';
-    case EOF = '\0';
+    case NAME = ''; //@FIXME
+    case EOF = '\0'; //@FIXME
   
      /**
      * If the TokenType represents a punctuator (i.e. a token that can split an

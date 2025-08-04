@@ -34,9 +34,6 @@ class Lexer
    */
   public function __construct( private  string $mText) 
   {
-    
-   
-    
     // Register all of the TokenTypes that are explicit punctuators.
     foreach (TokenType::cases() as $type) {
       $punctuator = $type->punctuator();
@@ -48,7 +45,7 @@ class Lexer
   
  
   public function hasNext() {
-    return true;
+    return true; //@fixme
   }
 
   public function next(): Token {
