@@ -7,7 +7,8 @@ Thank you very much Bob - I learned a lot by reading your great article [Pratt P
 
 ## Disclaimer 
 
-** Status: just started **
+** Status: just started - won't run w/o errors **
+
 I just started this little repo - if you are curious about it look again in a few days
 
 ## Files 
