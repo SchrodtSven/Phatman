@@ -7,4 +7,4 @@ use SchrodtSven\Phatman\TokenType;
 print(getcwd());
 
 #exit();
-print(TokenType::BANG->value);
+print(TokenType::EOF->punctuator());

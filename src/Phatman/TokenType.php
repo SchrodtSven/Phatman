@@ -27,8 +27,9 @@ enum TokenType: string
     case BANG       ='!';
     case QUESTION   ='?';
     case COLON      =':';
-    case NAME = null;
-    case EOF = null;
+    
+    case NAME = '';
+    case EOF = '\0';
   
      /**
      * If the TokenType represents a punctuator (i.e. a token that can split an

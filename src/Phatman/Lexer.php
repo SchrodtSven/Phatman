@@ -3,7 +3,7 @@
 declare(strict_types=1);
 /**
  * 
- * A very primitive lexer. Takes a string and splits it into a series of
+ * A very primitive lexer. clear;git statTakes a string and splits it into a series of
  * Tokens. Operators and punctuation are mapped to unique keywords. Names,
  * which can be any series of letters, are turned into NAME tokens. All other
  * characters are ignored (except to separate names). Numbers and strings are
