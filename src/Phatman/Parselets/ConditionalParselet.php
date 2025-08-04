@@ -13,20 +13,27 @@ declare(strict_types=1);
  */
 
 namespace SchrodtSven\Phatman\Parselets;
+
 use SchrodtSven\Phatman\Expressions\Expression;
+use SchrodtSven\Phatman\Precedence;
 use SchrodtSven\Phatman\Parser;
 use SchrodtSven\Phatman\Token;
+use SchrodtSven\Phatman\TokenType;
+use SchrodtSven\Phatman\Expressions\ConditionalExpression;
 
-class ConditionalParselet implements InfixParselet {
-  public  function parse(Parser $parser, Expression $left, Token $token): Expression {
-    Expression thenArm = parser.parseExpression();
-    parser.consume(TokenType.COLON);
-    Expression elseArm = parser.parseExpression(Precedence::CONDITIONAL - 1);
-    
-    return new ConditionalExpression(left, thenArm, elseArm);
+class ConditionalParselet implements InfixParselet
+{
+  public  function parse(Parser $parser, Expression $left, Token $token): Expression
+  {
+    $thenArm = $parser->parseExpression();
+    $parser->consume(TokenType::COLON);
+    $elseArm = $parser->parseExpression(Precedence::CONDITIONAL - 1);
+
+    return new ConditionalExpression($left, $thenArm, $elseArm);
   }
 
-  public function  getPrecedence() {
+  public function  getPrecedence(): int
+  {
     return Precedence::CONDITIONAL;
   }
 }

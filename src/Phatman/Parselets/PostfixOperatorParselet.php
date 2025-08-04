@@ -16,19 +16,18 @@ namespace SchrodtSven\Phatman\Parselets;
 use SchrodtSven\Phatman\Expressions\Expression;
 use SchrodtSven\Phatman\Parser;
 use SchrodtSven\Phatman\Token;
+use SchrodtSven\Phatman\Expressions\PostfixExpression;
 
 class PostfixOperatorParselet implements InfixParselet {
-  public PostfixOperatorParselet(int precedence) {
-    mPrecedence = precedence;
-  }
+  public function __construct(private int $mPrecedence) {}
   
   public  function parse(Parser $parser, Expression $left, Token $token): Expression {
-    return new PostfixExpression(left, token.getType());
+    return new PostfixExpression($left, $token->getType());
   }
 
-  public function  getPrecedence() {
-    return mPrecedence;
+  public function  getPrecedence(): int {
+    return $this->mPrecedence;
   }
   
-  private final int mPrecedence;
+
 }

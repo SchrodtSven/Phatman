@@ -28,5 +28,5 @@ use SchrodtSven\Phatman\Token;
 
 interface PrefixParselet
 {
-    public function parse(Parser $parser, Token $token): Expression: Expression;
+    public function parse(Parser $parser, Token $token): Expression;
 }

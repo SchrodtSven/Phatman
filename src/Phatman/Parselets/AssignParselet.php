@@ -26,18 +26,24 @@ use SchrodtSven\Phatman\Expressions\NameExpression;
 use SchrodtSven\Phatman\ParseException;
 use SchrodtSven\Phatman\Precedence;
 
-class AssignParselet implements InfixParselet {
-  public  function parse(Parser $parser, Expression $left, Token $token): Expression {
+class AssignParselet implements InfixParselet
+{
+  public  function parse(Parser $parser, Expression $left, Token $token): Expression
+  {
     $right = $parser->parseExpression(Precedence::ASSIGNMENT - 1);
-    
+
     if (!($left instanceof NameExpression)) throw new ParseException(
-        "The left-hand side of an assignment must be a name.");
-    
-        //@FIXME
-    //$name = ((NameExpression)$left)->getName();
-        $name ='';
+      "The left-hand side of an assignment must be a name."
+    );
+
+    //@FIXME
+    $name = $left->getName();
+
     return new AssignExpression($name, $right);
   }
 
-  public function  getPrecedence(): int { return Precedence::ASSIGNMENT; }
+  public function  getPrecedence(): int
+  {
+    return Precedence::ASSIGNMENT;
+  }
 }

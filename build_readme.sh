@@ -1,3 +1,3 @@
 #!/bin/zsh
 
-tree -I 'tmp' > lcl/tree.txt
+tree -I 'tmp' > tree.txt

@@ -15,28 +15,29 @@ declare(strict_types=1);
  */
 
 namespace SchrodtSven\Phatman\Parselets;
+
 use SchrodtSven\Phatman\Expressions\Expression;
 use SchrodtSven\Phatman\Parser;
 use SchrodtSven\Phatman\Token;
- 
-class PrefixOperatorParselet implements PrefixParselet {
-  public PrefixOperatorParselet(int precedence) {
-    mPrecedence = precedence;
-  }
-  
-  public Expression function parse(Parser $parser, Token $token): Expression: Expression:Expression {
+use SchrodtSven\Phatman\Expressions\PrefixExpression;
+
+class PrefixOperatorParselet implements PrefixParselet
+{
+  public function __construct(private int $mPrecedence) {}
+
+  public function parse(Parser $parser, Token $token): Expression
+  {
     // To handle right-associative operators like "^", we allow a slightly
     // lower precedence when parsing the right-hand side. This will let a
     // parselet with the same precedence appear on the right, which will then
     // take *this* parselet's result as its left-hand argument.
-    $right = $parser->parseExpression(mPrecedence);
-    
-    return new PrefixExpression(token.getType(), right);
+    $right = $parser->parseExpression($this->mPrecedence);
+
+    return new PrefixExpression($token->getType(), $right);
   }
 
-  public function  getPrecedence() {
-    return mPrecedence;
+  public function  getPrecedence()
+  {
+    return $this->mPrecedence;
   }
-  
-  private final int mPrecedence;
 }

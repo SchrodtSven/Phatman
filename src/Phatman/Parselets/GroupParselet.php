@@ -13,14 +13,18 @@ declare(strict_types=1);
  */
 
 namespace SchrodtSven\Phatman\Parselets;
+
 use SchrodtSven\Phatman\Expressions\Expression;
 use SchrodtSven\Phatman\Parser;
 use SchrodtSven\Phatman\Token;
+use SchrodtSven\Phatman\TokenType;
 
-class GroupParselet implements PrefixParselet {
-  public Expression function parse(Parser $parser, Token $token): Expression: Expression:Expression {
-    Expression expression = parser.parseExpression();
-    parser.consume(TokenType.RIGHT_PAREN);
-    return expression;
+class GroupParselet implements PrefixParselet
+{
+  public function parse(Parser $parser, Token $token): Expression
+  {
+    $expression = $parser->parseExpression();
+    $parser->consume(TokenType::RIGHT_PAREN);
+    return $expression;
   }
 }

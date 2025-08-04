@@ -12,27 +12,34 @@ declare(strict_types=1);
  */
 
 namespace SchrodtSven\Phatman\Parselets;
+
+use SchrodtSven\Phatman\Precedence;
 use SchrodtSven\Phatman\Expressions\Expression;
 use SchrodtSven\Phatman\Parser;
 use SchrodtSven\Phatman\Token;
+use SchrodtSven\Phatman\TokenType;
+use SchrodtSven\Phatman\Expressions\CallExpression;
 
-class CallParselet implements InfixParselet {
-  public  function parse(Parser $parser, Expression $left, Token $token): Expression {
+class CallParselet implements InfixParselet
+{
+  public  function parse(Parser $parser, Expression $left, Token $token): Expression
+  {
     // Parse the comma-separated arguments until we hit, ")".
-    List<Expression> args = new ArrayList<Expression>();
-    
+    $args = [];
+
     // There may be no arguments at all.
-    if (!parser.match(TokenType.RIGHT_PAREN)) {
+    if (!$parser->pmatch(TokenType::RIGHT_PAREN)) {
       do {
-        args.add(parser.parseExpression());
-      } while (parser.match(TokenType.COMMA));
-      parser.consume(TokenType.RIGHT_PAREN);
+        $args[] = $parser->parseExpression();
+      } while ($parser->pmatch(TokenType::COMMA));
+      $parser->consume(TokenType::RIGHT_PAREN);
     }
-    
-    return new CallExpression(left, args);
+
+    return new CallExpression($left, $args);
   }
 
-  public function  getPrecedence() {
+  public function  getPrecedence(): int
+  {
     return Precedence::CALL;
   }
 }
