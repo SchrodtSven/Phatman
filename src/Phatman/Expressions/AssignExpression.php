@@ -27,4 +27,10 @@ class AssignExpression implements Expression
         $this->mRight->pprint($builder);
         $builder->append(")");
     }
+
+     public function getName()
+  {
+    return $this->mName;
+  }
+
 }

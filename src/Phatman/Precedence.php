@@ -5,7 +5,7 @@ declare(strict_types=1);
  * Defines the different precedence levels used by the infix parsers. These
  * determine how a series of infix expressions will be grouped. For example,
  * "a + b * c - d" will be parsed as "(a + (b * c)) - d" because "*" has higher
- * precedence than "+" and "-". Here, bigger numbers mean higher precedence.
+ * precedence than "+" and "-". Here, bigger numbers mean higher Precedence::
  * 
  * @author Sven Schrodt<sven@schrodt.club>
  * @link https://github.com/SchrodtSven/Phatman
@@ -13,11 +13,11 @@ declare(strict_types=1);
  * @version 0.1
  * @since 2025-08-04
  */
-
+namespace SchrodtSven\Phatman;
  
 class Precedence 
 {
-  // Ordered in increasing precedence.
+  // Ordered in increasing Precedence::
   public const int  ASSIGNMENT  = 1;
   public const int  CONDITIONAL = 2;
   public const int  SUM         = 3;

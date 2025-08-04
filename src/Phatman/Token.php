@@ -19,7 +19,7 @@ namespace SchrodtSven\Phatman;
 final class Token
 {
 
-    public function __construct(private TokenType $this->mType, private string $this->mText) {}
+    public function __construct(private TokenType $mType, private string $mText) {}
 
     public function getType(): TokenType
     {

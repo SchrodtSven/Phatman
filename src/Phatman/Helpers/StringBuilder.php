@@ -2,13 +2,15 @@
 
 declare(strict_types=1);
 /**
- *  An assignment expression like "foo = bar".
+ * A partial re-implementation of java.lang.StringBuilder 
  * 
  * @author Sven Schrodt<sven@schrodt.club>
  * @link https://github.com/SchrodtSven/Phatman
  * @package Phatman
  * @version 0.1
  * @since 2025-08-04
+ * @todo, 
+ * @fixme implement me
  */
 
 namespace SchrodtSven\Phatman\Helpers;
@@ -20,7 +22,7 @@ class StringBuilder
     private string $content = '';
     public function append(mixed $txt): self
     {
-        //@TODO implement me
+        
         $this->content .= $txt;
         return $this;
     }

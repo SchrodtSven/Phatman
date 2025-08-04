@@ -48,7 +48,7 @@ I just started this little repo - if you are curious about it look again in a fe
 │       │   ├── PrefixOperatorParselet.php
 │       │   └── PrefixParselet.php
 │       ├── Parser.php
-│       ├── Precedence.php
+│       ├── Precedence::php
 │       ├── Token.php
 │       └── TokenType.php
 └── test
