@@ -7,7 +7,7 @@ Thank you very much Bob - I learned a lot by reading your great article [Pratt P
 
 ## Disclaimer 
 > [!WARNING]  
-> * Status: just started - won't run w/o errors *
+> <b>>Status: just started - won't run w/o errors </b>
 
 I just started this little repo - if you are curious about it look again in a few days
 
@@ -61,4 +61,4 @@ I just started this little repo - if you are curious about it look again in a fe
 ## Useless knowledge
 
 ### Why this name? 
-<i>Bantam</i> is an anagram of <i>Batman</i> - because I do not like Detective Comics as much as Marvel, I decided to call it <i>Phatman</i>, starting with "Ph" like in ```PHP``` although the parser is rather tiny.
+<i>Bantam</i> is an anagram of <i>Batman</i> - because I do not like Detective Comics as much as Marvel, I decided to call it <i>Phatman</i>, starting with "Ph" (like in ```PHP``` if case ignored) although the parser is rather tiny.
