@@ -17,24 +17,24 @@ namespace SchrodtSven\Phatman;
 
 class Parser
 {
-    public function __construct(private $mTokens) {}
+    public function __construct(private $this->mTokens) {}
 
 
 
-    public function registerPre(TokenType $token, PrefixParselet $parselet)
+    public function registerPre(private TokenType $token, PrefixParselet $parselet)
     {
-        $mPrefixParselets->put($token, $parselet);
+        $this->mPrefixParselets->put($token, $parselet);
     }
 
-    public function registerIn(TokenType $token, InfixParselet $parselet)
+    public function registerIn(private TokenType $token, InfixParselet $parselet)
     {
-        $mInfixParselets->put($token, $parselet);
+        $this->mInfixParselets->put($token, $parselet);
     }
 
     public function parseExpression(int $precedence=0): Expression
     {
         $token = $this->consume();
-        $prefix = $mPrefixParselets->get($token->getType());
+        $prefix = $this->mPrefixParselets->get($token->getType());
 
         if ($prefix == null) throw new ParseException("Could not parse \"" +
             $token->getText() + "\".");
@@ -44,7 +44,7 @@ class Parser
         while ($precedence < $this->getPrecedence()) {
             $token = $this->consume();
 
-            $infix = $mInfixParselets->get($token->getType());
+            $infix = $this->mInfixParselets->get($token->getType());
             $left = $infix->parse($this, $left, $token);
         }
 
@@ -53,7 +53,7 @@ class Parser
 
     
 
-    public function pmatch(TokenType $expected): bool 
+    public function pmatch(private TokenType $expected): bool 
     {
     $token = $this->lookAhead(0);
     if ($token->getType() != $expected) {
@@ -99,7 +99,7 @@ class Parser
   }
 
   private function getPrecedence(): int {
-    $parser = $mInfixParselets->get($this->lookAhead(0).getType());
+    $parser = $this->mInfixParselets->get($this->lookAhead(0).getType());
     if ($parser != null) return parser.getPrecedence();
     
     return 0;

@@ -30,4 +30,12 @@ enum TokenType: string
     case NAME = null;
     case EOF = null;
   
+     /**
+     * If the TokenType represents a punctuator (i.e. a token that can split an
+     * identifier like '+', this will get its text.
+     */
+    public function punctuator(): ?string
+    {
+        return $this->value;
+    }
 }

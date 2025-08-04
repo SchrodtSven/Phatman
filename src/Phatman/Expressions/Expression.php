@@ -12,11 +12,11 @@ declare(strict_types=1);
  */
 
 namespace SchrodtSven\Phatman\Expressions;
-
+use SchrodtSven\Phatman\Helpers\StringBuilder;
 interface Expression {
   /**
    * Pretty-print the expression to a string.
    * @FIXME - implement Stringbuilder equivalent
    */
-    public function print($builder);
+    public function pprint(StringBuilder $builder);
 }
