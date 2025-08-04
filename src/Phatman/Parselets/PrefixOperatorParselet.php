@@ -20,6 +20,7 @@ use SchrodtSven\Phatman\Expressions\Expression;
 use SchrodtSven\Phatman\Parser;
 use SchrodtSven\Phatman\Token;
 use SchrodtSven\Phatman\Expressions\PrefixExpression;
+use SchrodtSven\Phatman\Parselets\PrefixParselet;
 
 class PrefixOperatorParselet implements PrefixParselet
 {

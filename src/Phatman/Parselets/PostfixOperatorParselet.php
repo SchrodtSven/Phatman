@@ -13,21 +13,24 @@ declare(strict_types=1);
  */
 
 namespace SchrodtSven\Phatman\Parselets;
+
 use SchrodtSven\Phatman\Expressions\Expression;
 use SchrodtSven\Phatman\Parser;
 use SchrodtSven\Phatman\Token;
 use SchrodtSven\Phatman\Expressions\PostfixExpression;
+use SchrodtSven\Phatman\Parselets\InfixParselet;
 
-class PostfixOperatorParselet implements InfixParselet {
+class PostfixOperatorParselet implements InfixParselet
+{
   public function __construct(private int $mPrecedence) {}
-  
-  public  function parse(Parser $parser, Expression $left, Token $token): Expression {
+
+  public  function parse(Parser $parser, Expression $left, Token $token): Expression
+  {
     return new PostfixExpression($left, $token->getType());
   }
 
-  public function  getPrecedence(): int {
+  public function  getPrecedence(): int
+  {
     return $this->mPrecedence;
   }
-  
-
 }
