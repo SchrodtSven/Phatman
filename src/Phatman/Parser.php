@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 /**
- * Generic parser class - to be inherited from by PhatboyParser
+ * Generic parser class - to be inherited from by PhatmanParser
  * 
  * @author Sven Schrodt<sven@schrodt.club>
  * @link https://github.com/SchrodtSven/Phatman
