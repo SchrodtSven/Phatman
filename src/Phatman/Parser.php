@@ -16,19 +16,20 @@ namespace SchrodtSven\Phatman;
 use SchrodtSven\Phatman\Expressions\Expression;
 use SchrodtSven\Phatman\Parselets\PrefixParselet;
 use SchrodtSven\Phatman\Parselets\InfixParselet;
+use SchrodtSven\Phatman\Lexer;
 
 class Parser
 {
   private array $mPrefixParselets = [];
   private array $mRead = [];
   private array $mInfixParselets = [];
-  public function __construct(private array $mTokens) {}
+  public function __construct(private Lexer $mTokens) {}
 
 
 
   public function registerPre(TokenType $token, PrefixParselet $parselet)
   {
-    $this->mPrefixParselets[$token] =  $parselet;
+    $this->mPrefixParselets[$token->value] =  $parselet;
   }
 
   public function registerIn(TokenType $token, InfixParselet $parselet)

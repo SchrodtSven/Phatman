@@ -1,4 +1,3 @@
-
 <?php
 
 declare(strict_types=1);
@@ -25,6 +24,7 @@ namespace SchrodtSven\Phatman\Parselets;
 use SchrodtSven\Phatman\Expressions\Expression;
 use SchrodtSven\Phatman\Parser;
 use SchrodtSven\Phatman\Token;
+use SchrodtSven\Phatman\Helpers\ArrayAccess;
 
 interface PrefixParselet
 {

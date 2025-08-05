@@ -2,12 +2,12 @@
 
 Porting/re-implementing [<i>bantam</i>](https://github.com/munificent/bantam) a demo of Pratt parsing by Bob Nystrom to <kbd>PHP 8.4+</kbd>
 
-Thank you very much Bob - I learned a lot by reading your great article [Pratt Parsers: Expression Parsing Made Easy](http://journal.stuffwithstuff.com/2011/03/19/pratt-parsers-expression-parsing-made-easy/)
+Thank you very much Bob - I learned a lot by reading your great article [Pratt Parsers: Expression Parsing Made Easy](http://journal.stuffwithstuff.com/2011/03/19/pratt-parsers-expression-parsing-made-easy/)!
 
 
 ## Disclaimer 
 > [!WARNING]  
-> <b>Status: just started - won't run w/o errors </b>
+> <b>Status: just started - it won't run w/o errors </b>
 
 I just started this little repo - if you are curious about it: look again in a few days
 

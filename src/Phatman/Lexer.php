@@ -18,21 +18,25 @@ declare(strict_types=1);
  */
 
 namespace SchrodtSven\Phatman;
+
 use SchrodtSven\Phatman\TokenType;
 use SchrodtSven\Phatman\Token;
 use SchrodtSven\Phatman\Helpers\TypeDetector;
+use SchrodtSven\Phatman\Helpers\ArrayAccessTrait;
 
-// @FIXME  implements \Iterator 
-class Lexer
+// @FIXME  
+class Lexer implements \ArrayAccess
 {
-    private array $mPunctuators = [];
-     
-    private int $mIndex = 0;
+  use ArrayAccessTrait;
+
+  private array $mPunctuators = [];
+  private int $mIndex = 0;
+
   /**
    * Creates a new Lexer to tokenize the given string.
    * @param text String to tokenize.
    */
-  public function __construct( private  string $mText) 
+  public function __construct(private  string $mText)
   {
     // Register all of the TokenTypes that are explicit punctuators.
     foreach (TokenType::cases() as $type) {
@@ -42,16 +46,18 @@ class Lexer
       }
     }
   }
-  
- 
-  public function hasNext() {
+
+
+  public function hasNext()
+  {
     return true; //@fixme
   }
 
-  public function next(): Token {
+  public function next(): Token
+  {
     while ($this->mIndex < strlen($this->mText)) {
       $c = $this->mText[$this->mIndex++];
-      
+
       if (str_contains($this->mText, $c)) {
         // Handle punctuation.
         return new Token($this->mPunctuators[$c], $c);
@@ -62,21 +68,17 @@ class Lexer
           if (TypeDetector::isAlpha($this->mText[$this->mIndex])) break;
           $this->mIndex++;
         }
-        
+
         $name = substr($this->mText, $start, $this->mIndex);
         return new Token(TokenType::NAME, $name);
       } else {
         // Ignore all other characters (whitespace, etc.)
       }
     }
-    
+
     // Once we've reached the end of the string, just return EOF tokens. We'll
     // just keeping returning them as many times as we're asked so that the
     // parser's lookahead doesn't have to worry about running out of tokens.
     return new Token(TokenType::EOF, "");
   }
-
-
-  
-
 }
